@@ -1,0 +1,31 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main() {
+    int n, q;
+    scanf("%d %d", &n, &q);
+
+    int **a  = (int**)malloc(n * sizeof(int*));
+    int *len = (int*) malloc(n * sizeof(int));
+
+    for (int u = 0; u < n; ++u) {
+        scanf("%d", &len[u]);
+        a[u] = (int*)malloc(len[u] * sizeof(int));
+        for (int j = 0; j < len[u]; ++j)
+            scanf("%d", &a[u][j]);
+    }
+
+    for (int p = 0; p < q; ++p) {
+        int linha, coluna;
+        scanf("%d %d", &linha, &coluna);
+        printf("%d\n", a[linha][coluna]);
+    }
+
+    for (int u = 0; u < n; ++u) free(a[u]);
+    free(a);
+    free(len);
+    return 0;
+}
