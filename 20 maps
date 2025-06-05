@@ -1,0 +1,40 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <set>
+#include <map>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    
+    map<string, int> notas_alunos;
+    int num_consultas;
+    cin >> num_consultas;
+
+    for (int k = 0; k < num_consultas; ++k) {
+        int tipo_consulta;
+        cin >> tipo_consulta;
+        string nome_aluno;
+
+        if (tipo_consulta == 1) {
+            int pontos;
+            cin >> nome_aluno >> pontos;
+            notas_alunos[nome_aluno] += pontos;
+        } else if (tipo_consulta == 2) {
+            cin >> nome_aluno;
+            notas_alunos[nome_aluno] = 0;
+        } else if (tipo_consulta == 3) {
+            cin >> nome_aluno;
+            cout << notas_alunos[nome_aluno] << endl;
+        }
+    }
+    return 0;
+}
+
+
+
+
